@@ -1,4 +1,5 @@
 import utils.imageProcessing as imageP
+from config import ID_ADMIN
 
 from skimage import io
 
@@ -12,8 +13,14 @@ def pull_image_handler(update: Update, context: CallbackContext) -> None:
 
     image = io.imread(newFile['file_path'])
 
-    image = imageP.start(image)
-    update.message.reply_photo(
+    image, msg = imageP.start(image)
+
+    update.message.reply_text(
+        text="Фото отправлено на проверку"
+    )
+
+    context.bot.send_photo(
+        chat_id=ID_ADMIN,
         photo=image,
-        caption="ok"
+        caption=msg
     )

@@ -1,5 +1,6 @@
+from typing import Tuple
+
 import cv2 as cv
-import numpy
 import numpy as np
 
 from io import BytesIO
@@ -11,12 +12,15 @@ def numpy_to_binary(arr):
     return io_buf.read()
 
 
-def start(image: numpy.ndarray) -> bytes:
+def start(image: np.ndarray) -> Tuple[bytes, str]:
     """
     Handling the sent image by the user and sending it back to the user
 
     :param image: image in numpy array
-    :return: binary image
+    :return: binary image and violation message
     """
+
     image_invert = np.invert(image)
-    return numpy_to_binary(image_invert)
+    msg = "Нарушение"
+
+    return numpy_to_binary(image_invert), msg
