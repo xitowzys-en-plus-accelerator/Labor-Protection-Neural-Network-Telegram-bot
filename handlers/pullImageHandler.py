@@ -8,8 +8,7 @@ from telegram.ext import CallbackContext
 
 
 def pull_image_handler(update: Update, context: CallbackContext) -> None:
-
-    path = "custom/file.jpg"
+    path = "custom/test1.jpg"
 
     if not os.path.exists("./custom"):
         os.makedirs("./custom")

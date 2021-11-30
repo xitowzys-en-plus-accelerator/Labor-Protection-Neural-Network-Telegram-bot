@@ -21,3 +21,7 @@ ID_ADMIN=
 Обработка изображения осуществляется в `utils/imageProcessing.py` в
 функции `start`
 
+## Тестовые изображение
+
+Обработка изображения осуществляется в `utils/imageProcessing.py` в
+функции `test_start`
